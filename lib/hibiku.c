@@ -168,7 +168,7 @@ hbk_string_view hbk_state_get_source_text(hbk_state* state, hbk_source_id source
 void hbk_state_render_diagnostics_to_file(hbk_state* state, FILE* file) {
     hbk_string render_target = NULL;
     for (int64_t i = 0; i < hbk_vector_count(state->diagnostics); i++) {
-        auto diag = state->diagnostics[i];
+        hbk_diagnostic* diag = state->diagnostics[i];
         if (diag->kind == HBK_DIAG_RELATED) {
             continue;
         }
